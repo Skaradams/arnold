@@ -11,17 +11,24 @@ class App extends Component {
       restTime: 10
     }
   }
-  startTimer() {
-    // while(this.state.timer < this.state.restTime) {
-    //   setTimeout(() => {
-    //     this.state.timer = this.state.timer + 1;
-    //   }, 1000);
-    // }
-    this.state.timer = this.state.timer + 1;
-    this.state = Object.assign({}, this.state, {
-      timer: this.state.timer + 1
-    })
-    console.log("timer", this.state);
+  startTimer(timer=0) {
+    if(timer < this.state.restTime) {
+      timer = timer + 1;
+      this.setState(
+        Object.assign({}, this.state, {
+          timer: timer
+        })
+      )
+      setTimeout(() => {
+        this.startTimer(timer)
+      }, 1000);
+    } else {
+      this.setState(
+        Object.assign({}, this.state, {
+          timer: 0
+        })
+      )
+    }
   }
   render() {
     return (
