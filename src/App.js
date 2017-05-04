@@ -1,7 +1,7 @@
 import { createStore } from 'redux'
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import Exercise from './components/Exercise.js';
+import BaseExercise from './containers/BaseExercise.js';
 import './App.css';
 
 // function arnold(state = {
@@ -69,8 +69,8 @@ import './App.css';
 // }
 const App = () => (
   <div>
-    <Exercise name="Blabla">
-    </Exercise>
+    <BaseExercise>
+    </BaseExercise>
   </div>
 )
 export default App;
