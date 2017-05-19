@@ -13,20 +13,18 @@ function arnoldApp(state = {
     }
 }, action) {
   switch (action.type) {
-  case 'START_TIMER':
-    console.log('start timer');
-    if(state.timer < state.REST_TIME) {
-      // return state.timer + 1;
-    } else {
-      // this.setState(
-      //   Object.assign({}, this.state, {
-      //     timer: 0
-      //   })
-      // )
-    }
-  default:
-    return state
+    case 'START_TIMER':
+      if(state.exercise.timer < state.REST_TIME) {
+        state.exercise.timer += 1;
+      } else {
+        // this.setState(
+        //   Object.assign({}, this.state, {
+        //     timer: 0
+        //   })
+        // )
+      }
   }
+  return state;
 }
 
 let store = createStore(arnoldApp);
