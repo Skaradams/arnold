@@ -20,3 +20,5 @@ const BaseExercise = connect(
   mapStateToProps,
   mapDispatchToProps
 )(Exercise);
+
+export default BaseExercise;
