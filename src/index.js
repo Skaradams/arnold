@@ -2,20 +2,26 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
+import { fromJS } from 'immutable';
 import App from './App';
 import './index.css';
 
-function arnoldApp(state = {
+function arnoldApp(state = fromJS({
     REST_TIME: 10,
     exercise: {
         timer: 0,
         name: 'test'
     }
-}, action) {
+}), action) {
+  console.log(state);
+  let newState = state;
   switch (action.type) {
     case 'START_TIMER':
-      if(state.exercise.timer < state.REST_TIME) {
-        state.exercise.timer += 1;
+
+      if(state.get('exercise').get('timer') < state.get('REST_TIME')) {
+        newState.get('exercise').set('timer', newState.get('exercise').get('timer') + 1);
+        console.log(newState.get('exercise').get('timer'));
+        // state.exercise.timer += 1;
       } else {
         // this.setState(
         //   Object.assign({}, this.state, {
@@ -24,7 +30,7 @@ function arnoldApp(state = {
         // )
       }
   }
-  return state;
+  return newState;
 }
 
 let store = createStore(arnoldApp);
