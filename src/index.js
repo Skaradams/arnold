@@ -18,8 +18,12 @@ function arnoldApp(state = fromJS({
   switch (action.type) {
     case 'START_TIMER':
 
-      if(state.get('exercise').get('timer') < state.get('REST_TIME')) {
-        newState.get('exercise').set('timer', newState.get('exercise').get('timer') + 1);
+      if(newState.get('exercise').get('timer') < newState.get('REST_TIME')) {
+        newState = newState.set('exercise',
+            newState.get('exercise').set('timer',
+                newState.get('exercise').get('timer') + 1
+            )
+        );
         console.log(newState.get('exercise').get('timer'));
         // state.exercise.timer += 1;
       } else {
