@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 
 const ExerciseThumb = ({name, charge, reps, rest}) => {
-  console.log(name);
   return(
-    <div className="exercise-thumb">
+    <div className="exercise-thumb noFlex">
       <h3>
         { name }
       </h3>

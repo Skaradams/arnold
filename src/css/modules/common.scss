@@ -1,0 +1,35 @@
+body {
+  font-size: 16px;
+}
+.row, .column {
+  flex-direction: row;
+  display: flex;
+
+  margin: 0;
+  > * {
+    flex: 1;
+    box-sizing: border-box;
+    min-height: 0;
+    min-width: 0;
+    &.double {
+        flex: 2;
+    }
+  }
+  &.centered {
+    justify-content: center;
+  }
+}
+.column {
+  flex-direction: column;
+  width: 100%;
+}
+.noFlex {
+  flex: none !important;
+}
+h3 {
+  font-size: 1.4rem;
+}
+.container {
+  width: 900px;
+  margin: auto; 
+}

@@ -10,8 +10,10 @@ const App = () => {
   });
   return (
     <div className="app" >
-      <div className="exercise-list">
-        { exerciseComponents }
+      <div className="container">
+        <div className="exercise-list row">
+          { exerciseComponents }
+        </div>
       </div>
     </div>
   )
